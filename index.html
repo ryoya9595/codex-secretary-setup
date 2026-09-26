@@ -114,7 +114,7 @@
       <li><b>VS Code などのエディタ</b>：「フォルダーを開く」でそのフォルダを開いてから Codex を使う</li>
       <li><b>ターミナル</b>：そのフォルダに移動してから <code>codex</code> を起動</li>
     </ul>
-    <div class="note tip"><span class="ico">💡</span><span>「このフォルダを信頼しますか？」と聞かれたら「信頼する」でOK。Obsidian はまだ入れていなくても大丈夫です（途中で案内があります）。</span></div>
+    <div class="note tip"><span class="ico">💡</span><span>「このフォルダを信頼しますか？」と聞かれたら「信頼する」でOK。Mac で「アクセスを許可しますか？」と出たら「許可」でOK。Obsidian はまだ入れていなくても大丈夫です（途中で案内があります）。</span></div>
   </div>
 
   <div class="card">
@@ -134,10 +134,10 @@
   <div class="card">
     <h3>途中であなたがやること</h3>
     <ol>
-      <li><b>ChatGPT に1回貼る</b>：Codex が「このメッセージを ChatGPT に貼って」と渡してくるので、いつもの ChatGPT に貼って送信 → 返ってきた答えを全部コピーして Codex に貼り返す（設定画面のスクショを貼ってもOK）</li>
+      <li><b>ChatGPT に1回貼る</b>：Codex が「このメッセージを ChatGPT に貼って」と渡してくるので、いつもの ChatGPT に貼って送信 → 返ってきた答えを全部コピーして Codex に貼り返す（設定画面のスクショを貼ってもOK。アプリは添付ボタンかドラッグ、ターミナルは画像をドラッグ）</li>
       <li><b>秘書の名前を決める</b>：ChatGPT での名前を続けてもOK。思いつかなければ候補を出してくれます</li>
       <li><b>Obsidian でフォルダを開く</b>：「フォルダを保管庫として開く」→ そのフォルダを選ぶ</li>
-      <li><b>ChatGPT の全データをエクスポート</b>：ChatGPT の 設定 → データコントロール →「データをエクスポートする」→ メールのリンクから zip をダウンロード（<strong>消す前の保険</strong>です）</li>
+      <li><b>ChatGPT の全データをエクスポート</b>：ChatGPT の 設定 → データコントロール →「データをエクスポートする」→ メールのリンクから zip をダウンロード（<strong>消す前の保険</strong>です）。メールは数分〜数時間かかることがあるので、待たずに先へ進んでOK。届いたら「ダウンロードできた」と送ってください</li>
     </ol>
     <div class="note tip"><span class="ico">💡</span><span>過去の会話の中身も秘書に覚えさせたい人は、途中で聞かれたら「はい」。会話の一覧から選ぶだけで、要点が記憶に整理されます。</span></div>
   </div>
@@ -160,7 +160,7 @@
 <section id="check">
   <div class="sec-head"><div class="step-num">03</div><h2>引っ越しの確認 — 新しいセッションで</h2></div>
   <div class="card">
-    <p>記憶のルールは<strong>次のセッションから</strong>効きます。Codex で<strong>新しいセッション</strong>を始めて（フォルダは同じ）、これを送ってください。</p>
+    <p>記憶のルールは<strong>次のセッションから</strong>効きます。Codex で<strong>新しいセッション</strong>（アプリなら「新しいスレッド」、ターミナルなら <code>/new</code>）を<strong>同じフォルダ</strong>で始めて、これを送ってください。</p>
     <div class="inline-cmd"><code id="checkPrompt"></code><button class="copy-btn" data-target="checkPrompt">コピー</button></div>
     <p>秘書が ChatGPT のときの話し方で話しかけてきます。「ちょっと違う」と思ったら、そのまま伝えればその場で直してくれます。続けて「おはよう」と送ると、今日やることを出してくれます。</p>
   </div>
