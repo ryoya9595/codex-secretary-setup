@@ -134,12 +134,26 @@
   <div class="card">
     <h3>途中であなたがやること</h3>
     <ol>
-      <li><b>ChatGPT に1回貼る</b>：Codex が「このメッセージを ChatGPT に貼って」と渡してくるので、いつもの ChatGPT に貼って送信 → 返ってきた答えを全部コピーして Codex に貼り返す（設定画面のスクショを貼ってもOK。アプリは添付ボタンかドラッグ、ターミナルは画像をドラッグ）</li>
+      <li><b>ChatGPT に1回貼る</b>：Codex が「このメッセージを ChatGPT に貼って」と渡してくるので（下の「ChatGPT に貼るメッセージ」からもコピーできます）、いつもの ChatGPT に貼って送信 → 返ってきた答えを全部コピーして Codex に貼り返す（設定画面のスクショを貼ってもOK。アプリは添付ボタンかドラッグ、ターミナルは画像をドラッグ）</li>
       <li><b>秘書の名前を決める</b>：ChatGPT での名前を続けてもOK。思いつかなければ候補を出してくれます</li>
       <li><b>Obsidian でフォルダを開く</b>：「フォルダを保管庫として開く」→ そのフォルダを選ぶ</li>
       <li><b>ChatGPT の全データをエクスポート</b>：ChatGPT の 設定 → データコントロール →「データをエクスポートする」→ メールのリンクから zip をダウンロード（<strong>消す前の保険</strong>です）。メールは数分〜数時間かかることがあるので、待たずに先へ進んでOK。届いたら「ダウンロードできた」と送ってください</li>
     </ol>
     <div class="note tip"><span class="ico">💡</span><span>過去の会話の中身も秘書に覚えさせたい人は、途中で聞かれたら「はい」。会話の一覧から選ぶだけで、要点が記憶に整理されます。</span></div>
+  </div>
+
+  <div class="card">
+    <h3>💬 ChatGPT に貼るメッセージ</h3>
+    <p>Codex に「ChatGPT に貼って」と言われたら、ここからコピーしてもOKです。<strong>いつもの ChatGPT の新しいチャット</strong>に貼って送り、返ってきた答えを全部コピーして Codex に貼り返してください。</p>
+    <div class="prompt-box" style="margin-top:12px">
+      <div class="prompt-head">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <span class="fname">ChatGPTに貼るメッセージ</span>
+        <button class="copy-btn" data-target="extractPrompt">コピー</button>
+      </div>
+      <div class="prompt-scroll"><pre id="extractPrompt"></pre></div>
+    </div>
+    <div class="note tip"><span class="ico">💡</span><span>そのあと Codex から「メモリ画面のスクショを貼って」とお願いされます。ChatGPT がメモリを書き漏らしていないか、見比べるためです。</span></div>
   </div>
 
   <details>
