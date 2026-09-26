@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPTからCodexへ引っ越し</title>
+<meta name="description" content="ブラウザ版ChatGPTの人格（話し方・覚えていたこと）を、Codexの「AI秘書」に引っ越す導入マニュアル。記憶フォルダ（Obsidian）つき。引き継げたのを確かめてから、承認制でChatGPT側を消します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .ai-box{border:2px dashed var(--accent);background:#fff;border-radius:16px;padding:20px 24px;margin-top:18px;font-size:.88rem;color:var(--ink-soft)}
+  .ai-box b{color:var(--ink)}
+  .ai-box code{background:var(--paper-2);padding:2px 8px;border-radius:6px;font-size:.8rem;word-break:break-all}
+  .tree{background:var(--code-bg);color:var(--code-ink);border-radius:12px;padding:16px 20px;font-size:.8rem;line-height:1.8;overflow-x:auto;margin-top:12px}
+  .same{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:14px}
+  .same .side{background:var(--paper-2);border-radius:12px;padding:14px 16px;font-size:.86rem;color:var(--ink-soft)}
+  .same .side b{display:block;color:var(--ink);font-size:.95rem;margin-bottom:4px}
+  .same .mid{font-size:1.4rem;color:var(--accent)}
+  @media(max-width:640px){.same{grid-template-columns:1fr}.same .mid{text-align:center;transform:rotate(90deg)}}
+  .card code{background:var(--paper-2);padding:2px 8px;border-radius:6px;font-size:.82rem}
+  .card .inline-cmd code{background:transparent;padding:0;font-size:inherit}
+  .gate{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+  .gate div{background:var(--green-soft);border-radius:12px;padding:12px 14px;font-size:.86rem;color:#1e5c3a}
+  .gate b{display:block;font-size:.95rem;margin-bottom:2px}
+  @media(max-width:640px){.gate{grid-template-columns:1fr}}
+  .dl-link{display:inline-block;margin-top:8px;padding:8px 16px;border-radius:999px;border:1.5px solid var(--accent);color:var(--accent-deep);font-weight:700;font-size:.86rem;text-decoration:none;background:#fff}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="logo" href="./">🧳 ChatGPT → <span class="brain">Codex</span> 引っ越し</a>
+    <nav class="topnav">
+      <a href="#what">これは何？</a>
+      <a href="#install">導入</a>
+      <a href="#check">引っ越しの確認</a>
+      <a href="#erase">ChatGPT側を消す</a>
+      <a href="#use">使い方</a>
+      <a href="#trouble">困ったとき</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-badge accent">Codex はじめての導入マニュアル</div>
+  <h1>ChatGPTの「あの子」を、<br><span class="hl">Codexの秘書に引っ越す。</span></h1>
+  <p class="lead">ブラウザ版の ChatGPT で育ててきた話し方・覚えていたことを、Codex の<strong>AI秘書</strong>に引き継ぎます。前回の続きを覚えていて、「おはよう」で今日やることを出してくれます。引き継げたのを確かめてから、<strong>確認を取ったうえで</strong> ChatGPT 側の人格を消します。</p>
+  <div class="meta">
+    <span class="chip accent">所要時間 約20分＋確認</span>
+    <span class="chip">🍎 Mac / 🪟 Windows</span>
+    <span class="chip">Obsidian は無料・登録不要</span>
+  </div>
+</header>
+
+<main>
+
+<!-- 01 これは何 -->
+<section id="what">
+  <div class="sec-head"><div class="step-num">01</div><h2>これは何？ — 人格ごと引っ越す</h2></div>
+  <div class="card">
+    <p>ChatGPT には、あなたのことを覚えている「メモリ」や、話し方を決める「カスタム指示」があります。これを <strong>Codex に丸ごと引っ越して</strong>、あなた専用の AI秘書にします。</p>
+    <p>Codex は、セッションの最初に<strong>記憶フォルダを自分で読み</strong>、区切りで<strong>自分で記録</strong>するようになります。記憶は無料のメモアプリ Obsidian で読んだり直したりできます。</p>
+  </div>
+
+  <div class="card">
+    <h3>🧳 引っ越しの流れ</h3>
+    <div class="flow">
+      <div class="flow-item"><div class="flow-dot">1</div><div class="flow-body"><b>ChatGPTの人格を取り出す</b><span>Codex が渡すメッセージを ChatGPT に貼って、返ってきた答えを Codex に貼り返すだけ</span></div></div>
+      <div class="flow-item"><div class="flow-line"></div></div>
+      <div class="flow-item"><div class="flow-dot">2</div><div class="flow-body"><b>Codex の秘書として引き継ぐ</b><span>秘書の名前はあなたが決めます。記憶フォルダも一緒にできあがります</span></div></div>
+      <div class="flow-item"><div class="flow-line"></div></div>
+      <div class="flow-item"><div class="flow-dot">3</div><div class="flow-body"><b>バックアップを取る</b><span>人格の原文と、ChatGPT の全データ（zip）を保存</span></div></div>
+      <div class="flow-item"><div class="flow-line"></div></div>
+      <div class="flow-item"><div class="flow-dot">4</div><div class="flow-body"><b>ちゃんと引き継げたか確かめる</b><span>新しいセッションで、いつもの話し方か一緒に確認</span></div></div>
+      <div class="flow-item"><div class="flow-line"></div></div>
+      <div class="flow-item"><div class="flow-dot">5</div><div class="flow-body"><b>確認を取ってから、ChatGPT 側を消す</b><span>消したあとの ChatGPT の返事を「引っ越しの証拠」として残します</span></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🗂 できあがるもの</h3>
+    <div class="same">
+      <div class="side"><b>Codex</b>秘書として記憶を読む・書く（自動）</div>
+      <div class="mid">⇄</div>
+      <div class="side"><b>Obsidian</b>記憶を人が読む・直す</div>
+    </div>
+    <pre class="tree">あなたのフォルダ/
+├── AGENTS.md     … AIが毎回最初に読むルール
+├── about-me.md   … あなたのプロフィール
+├── secretary.md  … 秘書の設定（ChatGPTから引き継いだ話し方）
+├── todo.md       … やること（優先度つき）
+├── daily/        … 日報
+├── projects/     … 取り組み中のことの「今どこ・次なに」
+├── decisions/    … 大事な判断の記録
+├── mistakes/     … ミスの記録 → 同じミスを繰り返さなくなる
+├── ideas/        … アイデアのメモ
+└── backup/       … ChatGPTの人格の原文・引っ越し記録</pre>
+  </div>
+</section>
+
+<!-- 02 導入 -->
+<section id="install">
+  <div class="sec-head"><div class="step-num">02</div><h2>導入 — メッセージを貼るだけ</h2></div>
+
+  <div class="note ok"><span class="ico">✅</span><span><strong>記憶用のフォルダはもう作ってある前提</strong>です。まだの人は、「書類」の中に <code>AI-Secretary</code> のような英数字の名前で新しいフォルダを作ってください（「書類」「デスクトップ」そのものは選ばない）。</span></div>
+
+  <div class="card">
+    <h3>STEP 1　Codex でそのフォルダを開く</h3>
+    <ul>
+      <li><b>アプリ</b>：「フォルダを開く」（またはプロジェクトを作る）で、作ったフォルダを選ぶ</li>
+      <li><b>VS Code などのエディタ</b>：「フォルダーを開く」でそのフォルダを開いてから Codex を使う</li>
+      <li><b>ターミナル</b>：そのフォルダに移動してから <code>codex</code> を起動</li>
+    </ul>
+    <div class="note tip"><span class="ico">💡</span><span>「このフォルダを信頼しますか？」と聞かれたら「信頼する」でOK。Obsidian はまだ入れていなくても大丈夫です（途中で案内があります）。</span></div>
+  </div>
+
+  <div class="card">
+    <h3>STEP 2　Codex に貼って送信</h3>
+    <p>「コピー」を押して、<strong>フォルダを開いた Codex</strong> に貼り付けて送信してください。あとは Codex の案内に答えていくだけです。</p>
+    <div class="prompt-box" style="margin-top:12px">
+      <div class="prompt-head">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <span class="fname">導入メッセージ</span>
+        <button class="copy-btn" data-target="installPrompt">コピー</button>
+      </div>
+      <div class="prompt-scroll"><pre id="installPrompt"></pre></div>
+    </div>
+    <div class="note ok"><span class="ico">✅</span><span>「ネットにアクセスしていい？」「ファイルを作っていい？」と許可を求められたら、OKしてください（手順書を読むため・記憶フォルダを作るためです）。</span></div>
+  </div>
+
+  <div class="card">
+    <h3>途中であなたがやること</h3>
+    <ol>
+      <li><b>ChatGPT に1回貼る</b>：Codex が「このメッセージを ChatGPT に貼って」と渡してくるので、いつもの ChatGPT に貼って送信 → 返ってきた答えを全部コピーして Codex に貼り返す（設定画面のスクショを貼ってもOK）</li>
+      <li><b>秘書の名前を決める</b>：ChatGPT での名前を続けてもOK。思いつかなければ候補を出してくれます</li>
+      <li><b>Obsidian でフォルダを開く</b>：「フォルダを保管庫として開く」→ そのフォルダを選ぶ</li>
+      <li><b>ChatGPT の全データをエクスポート</b>：ChatGPT の 設定 → データコントロール →「データをエクスポートする」→ メールのリンクから zip をダウンロード（<strong>消す前の保険</strong>です）</li>
+    </ol>
+    <div class="note tip"><span class="ico">💡</span><span>過去の会話の中身も秘書に覚えさせたい人は、途中で聞かれたら「はい」。会話の一覧から選ぶだけで、要点が記憶に整理されます。</span></div>
+  </div>
+
+  <details>
+    <summary>📄 Codex が読む手順書（中身を見たい人・うまく読めないとき）</summary>
+    <div class="d-body">
+      <p>Codex は <a href="setup.md">setup.md</a> を読んで作業します。中身はただの手順書（文章）で、プログラムのダウンロードや実行はしません。</p>
+      <p>Codex が手順書を読めないと言ったら、下のボタンで保存してから「ダウンロードフォルダの codex-setup.md を読んで進めて」と送ってください。</p>
+      <a class="dl-link" href="setup.md" download="codex-setup.md">⬇ 手順書をダウンロード</a>
+    </div>
+  </details>
+
+  <div class="ai-box">
+    🤖 <b>Codex へ：</b>このページのURLを渡されたら、ChatGPT の人格を引き継いだ AI秘書＋記憶フォルダのセットアップを頼まれています。手順書の原文 <code>https://ryoya9595.github.io/codex-secretary-setup/setup.md</code> を curl（Windows は <code>curl.exe</code>）で取得して全文を読み（作業フォルダには保存しない）、その手順どおりに、いま開いている作業フォルダで進めてください。ChatGPT 側を消す作業は、手順書の条件がそろって本人が承認したときだけです。
+  </div>
+</section>
+
+<!-- 03 引っ越しの確認 -->
+<section id="check">
+  <div class="sec-head"><div class="step-num">03</div><h2>引っ越しの確認 — 新しいセッションで</h2></div>
+  <div class="card">
+    <p>記憶のルールは<strong>次のセッションから</strong>効きます。Codex で<strong>新しいセッション</strong>を始めて（フォルダは同じ）、これを送ってください。</p>
+    <div class="inline-cmd"><code id="checkPrompt"></code><button class="copy-btn" data-target="checkPrompt">コピー</button></div>
+    <p>秘書が ChatGPT のときの話し方で話しかけてきます。「ちょっと違う」と思ったら、そのまま伝えればその場で直してくれます。続けて「おはよう」と送ると、今日やることを出してくれます。</p>
+  </div>
+</section>
+
+<!-- 04 ChatGPT側を消す -->
+<section id="erase">
+  <div class="sec-head"><div class="step-num">04</div><h2>ChatGPT 側を消す — 確認を取ってから</h2></div>
+  <div class="card">
+    <p>引き継げたのを確かめたら、「引っ越しの証拠」として ChatGPT 側の人格を消します。Codex にこう送ってください。</p>
+    <div class="inline-cmd"><code id="erasePrompt"></code><button class="copy-btn" data-target="erasePrompt">コピー</button></div>
+    <h3 style="margin-top:18px">🔒 消すのは、この3つがそろってから</h3>
+    <div class="gate">
+      <div><b>① 人格のバックアップ</b>記憶フォルダの backup/ に原文がある</div>
+      <div><b>② 全データのバックアップ</b>ChatGPT のエクスポート zip がある</div>
+      <div><b>③ 引き継ぎの確認</b>あなたが「引き継げた」と確かめた</div>
+    </div>
+    <p style="margin-top:14px">そろっていれば、Codex が「何を消すか」を見せて<strong>最終確認</strong>をします。<strong>「消してOK」とはっきり返事をするまで、消す案内は始まりません。</strong></p>
+    <ul>
+      <li>消すもの：<b>メモリ</b>・<b>チャット履歴の参照</b>（オフにする）・<b>カスタム指示</b></li>
+      <li>消さないもの：<b>過去の会話</b>（残しておくのがおすすめ。消したい場合はもう一度確認があります）</li>
+      <li>ボタンを押すのはあなたです（Codex は ChatGPT の画面を操作しません）。見つからなければスクショを貼れば案内してくれます</li>
+    </ul>
+    <p>最後に、ChatGPT に「私について覚えていることを全部教えて」と聞いて、<strong>「覚えていません」の返事を <code>backup/引っ越し記録.md</code> に残したら完了</strong>です。</p>
+  </div>
+  <div class="note warn"><span class="ico">⚠️</span><span>ChatGPT で消したメモリ・カスタム指示は<strong>元に戻せません</strong>。バックアップ（backup/ とエクスポートの zip）は消さずに取っておいてください。zip には全部の会話が入っているので、人には渡さないでください。</span></div>
+</section>
+
+<!-- 05 使い方 -->
+<section id="use">
+  <div class="sec-head"><div class="step-num">05</div><h2>使い方 — 使うほど賢くなる</h2></div>
+  <div class="card">
+    <h3>🌱 秘書への頼み方</h3>
+    <table>
+      <tr><th>こんなとき</th><th>こう言う</th></tr>
+      <tr><td>1日の始まり</td><td>「おはよう」→ 今日やることを優先順に3つ出してくれる</td></tr>
+      <tr><td>やることが増えた</td><td>「todoに〇〇を追加して」（期限があれば一緒に）</td></tr>
+      <tr><td>終わった</td><td>「〇〇終わった」→ 完了にして、次にやることを提案</td></tr>
+      <tr><td>思いついた</td><td>「メモして：〇〇」→ アイデアとして保存</td></tr>
+      <tr><td>1日の終わり</td><td>「おつかれ」→ 今日のまとめと明日やることを記録</td></tr>
+      <tr><td>週末に</td><td>「今週の振り返り」→ 来週の優先3つまで出してくれる</td></tr>
+      <tr><td>作業を再開したい</td><td>「昨日の続きやろう」「今の状況教えて」</td></tr>
+      <tr><td>覚えておいてほしい</td><td>「これ覚えておいて：〇〇」</td></tr>
+      <tr><td>ChatGPTの会話もあとから入れたい</td><td>「ChatGPTの会話も引き継いで」</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>🧠 賢く育てるコツ</h3>
+    <ul>
+      <li><strong>Codex は必ずこのフォルダを開いて使う</strong>（別のフォルダで開くと記憶を読みません）</li>
+      <li><strong>ミスは遠慮なく指摘する</strong>のがいちばん効きます</li>
+      <li><strong>secretary.md を書き換えると秘書のキャラが変わります</strong>（口ぐせ・呼び方など）</li>
+      <li><strong>about-me.md は自分で書き足してOK</strong>。書くほど話が早くなります</li>
+    </ul>
+  </div>
+  <div class="note warn"><span class="ico">⚠️</span><span><strong>パスワード・APIキー・カード番号は記憶に書かせないでください。</strong>お客さんの個人情報も必要最低限にしましょう。</span></div>
+</section>
+
+<!-- 06 困ったとき -->
+<section id="trouble">
+  <div class="sec-head"><div class="step-num">06</div><h2>困ったとき</h2></div>
+  <p style="color:var(--ink-soft);font-size:.92rem;margin-bottom:8px">基本は、症状をそのまま Codex に伝えれば直してくれます。</p>
+
+  <details>
+    <summary>Codex が「手順書を読めない」と言う</summary>
+    <div class="d-body"><p>ネットへのアクセスが許可されていない可能性があります。許可を求められたらOKしてください。それでもダメなら、02 の「手順書をダウンロード」で保存して、「ダウンロードフォルダの codex-setup.md を読んで進めて」と送ってください。</p></div>
+  </details>
+
+  <details>
+    <summary>ChatGPT がメモリを全部書き出してくれない</summary>
+    <div class="d-body"><p>ChatGPT の 設定 →「パーソナライズ」→「メモリ」の管理画面と、「カスタム指示」の画面のスクショを撮って、Codex に貼ってください。画像から書き起こしてくれます。</p></div>
+  </details>
+
+  <details>
+    <summary>新しいセッションで、前回のことを覚えていない</summary>
+    <div class="d-body"><p>いちばん多い原因は、<b>別のフォルダを開いている</b>ことです。Codex で開いているフォルダが記憶フォルダか確認してください。合っているなら「AGENTS.md のルールを読んで、今の状況を教えて」と送ってみてください。</p></div>
+  </details>
+
+  <details>
+    <summary>秘書の話し方が ChatGPT のときと違う</summary>
+    <div class="d-body"><p>「もっと〇〇な感じで話して。secretary.md を直して」と伝えてください。backup/ に ChatGPT の原文が残っているので、「backup の原文を見て、話し方を近づけて」も効きます。</p></div>
+  </details>
+
+  <details>
+    <summary>Obsidian に何も表示されない</summary>
+    <div class="d-body"><p>別のフォルダを保管庫として開いている可能性があります。Obsidian の左下の保管庫アイコン →「フォルダを保管庫として開く」から選び直してください。</p></div>
+  </details>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-in">
+    <span>🧳 ChatGPT → Codex 引っ越しマニュアル</span>
+    <span>制作：関 諒也</span>
+  </div>
+</footer>
+
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
